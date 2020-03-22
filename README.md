@@ -1,7 +1,21 @@
 # Restful API for To-Do List Application
 ## By Java Spring Boot
+### Status code explanation
+Status | Description
+--- | ---
+200 | Success (Response will return the result field only for this status)
+201 | Created (for Post method)
+400 | Bad Request
+404 | Not Found
+
+### To-Do structure
+Name | Type | Description
+--- | --- | --- |
+name | String | Name of the To-Do task
+description | String | Description  of the To-Do task
+ 
 ### todo.save
-Description : Save new to-do  
+Description : Save new To-Do  
 Method : Post  
 URI : /todo  
 Content-Type : application/json 
@@ -12,19 +26,19 @@ Parameter | Type | Description
 ##### Request-Body  
 Parameter | Type | Description  
 --- | --- | --- 
- name | String | Name of the task
- description | String | Description of the task
+ name | String | Name of the To-Do task
+ description | String | Description of the To-Do task
  
 ##### Response-Header  
 Parameter | Type | Description  
 --- | --- | --- 
- - | - | -T
+ - | - | -
 ##### Response-Body  
 Parameter | Type | Description  
 --- | --- | --- 
  code | int | Http code
  message | String | Short description from the server  
- result | Object | Show result: Saved task
+ result | Object | Show result: Saved To-Do
    
    ---
  ### todo.update
@@ -40,7 +54,7 @@ Parameter | Type | Description
  Parameter | Type | Description  
  --- | --- | --- 
   name | String | Name of the task
-  description | String | Description of the task
+  description | String | Description of the To-Do task
   
  ##### Response-Header  
  Parameter | Type | Description  
@@ -51,7 +65,7 @@ Parameter | Type | Description
  --- | --- | --- 
 code | int | Http code
 message | String | Short explanation from the server
-result | Object | Show result: Updated task  
+result | Object | Show result: Updated To-Do  
     
    ---
  ### todo.delete
