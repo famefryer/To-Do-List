@@ -7,6 +7,7 @@ Status | Description
 201 | Created (for Post method)
 400 | Bad Request
 404 | Not Found
+405 | Method not Allowed
 
 ### To-Do structure
 Name | Type | Description
