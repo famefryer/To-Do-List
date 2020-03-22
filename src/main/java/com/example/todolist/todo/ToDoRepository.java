@@ -1,4 +1,4 @@
-package com.example.toDoList.post;
+package com.example.todolist.todo;
 
 import org.springframework.data.repository.CrudRepository;
 

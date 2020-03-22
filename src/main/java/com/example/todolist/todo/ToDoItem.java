@@ -1,8 +1,9 @@
-package com.example.toDoList.post;
+package com.example.todolist.todo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Entity
@@ -12,8 +13,10 @@ public class ToDoItem {
     @GeneratedValue
     private int id;
 
+    @NotEmpty
     private String name;
 
+    @NotEmpty
     private String description;
 
     private Date timestamp;

@@ -1,4 +1,4 @@
-package com.example.toDoList;
+package com.example.todolist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ToDoListApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void Test(){
+		System.out.println(555);
 	}
 
 }
