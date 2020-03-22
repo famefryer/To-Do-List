@@ -13,6 +13,10 @@ public class ToDoService {
     @Autowired
     private ToDoRepository toDoRepository;
 
+    public ToDoService(ToDoRepository toDoRepository) {
+        this.toDoRepository = toDoRepository;
+    }
+
     public List<ToDoItem> getToDoList(){
         List<ToDoItem> todoList = new ArrayList<>();
         toDoRepository.findAll().forEach(todoList::add);

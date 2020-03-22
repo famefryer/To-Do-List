@@ -19,7 +19,13 @@ public class ToDoItem {
     @NotEmpty
     private String description;
 
-    private Date timestamp;
+    protected ToDoItem() {
+    }
+
+    public ToDoItem(@NotEmpty String name, @NotEmpty String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public int getId() {
         return id;
