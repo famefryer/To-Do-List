@@ -35,7 +35,7 @@ public class ToDoController {
         ToDoItem item = toDoService.findToDoByID(id);
         if(item == null)
             throw new ItemNotFoundRequestException("TodoItem(Id:"+id+") not founded");
-        return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK,"Success",item));
+        return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK,"Success Krub",item));
     }
 
     @PostMapping
