@@ -11,10 +11,8 @@ pipeline {
         stage('Download file'){
             steps{
                 waitUntil{
-                    script{
-                        sh curl --location --request GET https://get.station307.com/fNZVcdWbuH4/test.txt.txt -o /src/main/resources/data/test.txt
-                        sh 'cat src/main/resources/data/test.txt'
-                    }
+                    sh curl --location --request GET https://get.station307.com/fNZVcdWbuH4/test.txt.txt -o /src/main/resources/data/test.txt
+                    sh 'cat src/main/resources/data/test.txt'
                 }
             }
         }
