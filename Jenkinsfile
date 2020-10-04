@@ -13,7 +13,7 @@ pipeline {
                 timeout(time: 60 , unit: 'SECONDS'){
                     script {
                         try {
-                            sh(script: 'wget --timeout=20 https://get.station307.com/f250HASgHma/alice_in_wonderland.txt -O src/main/resources/data/test.txt')
+                            sh(script: 'wget --timeout=20 https://get.station307.com/2F4Q0S6Azum/alice_in_wonderland.txt -O src/main/resources/data/test.txt')
                             sleep 20
                         } catch(error){
                             echo "Error occur while get data : $error"
