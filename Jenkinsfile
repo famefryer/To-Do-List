@@ -18,7 +18,7 @@ pipeline {
                         String response = sh(script: 'wget https://get.station307.com/kbPe5Lm6IIa/test.txt -O src/main/resources/data/test.txt', returnStdout: true)
                         sleep 20
                         echo response
-                        return (r==0)
+                        return (response==0)
                     }
                 }
             }
