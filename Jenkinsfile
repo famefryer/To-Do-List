@@ -17,6 +17,7 @@ pipeline {
                     waitUntil{
                         def r = sh script: 'wget https://get.station307.com/kbPe5Lm6IIa/test.txt -O src/main/resources/data/test.txt', returnStdout: true
                         sleep 20
+                        echo "${r}"
                         return (r==0)
                     }
                 }
