@@ -12,7 +12,8 @@ pipeline {
             steps{
                 waitUntil {
                     script {
-                        sh script: 'wget -O src/main/resources/data/test.txt https://get.station307.com/fNZVcdWbuH4/test.txt.txt', returnStdout: true
+                        def r = sh script: 'wget -q https://get.station307.com/fNZVcdWbuH4/test.txt.txt -O src/main/resources/data/test.txt', returnStdout: true
+                        return (r == 0);
                     }
                 }
             }
