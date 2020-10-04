@@ -23,6 +23,7 @@ pipeline {
         }
         stage('Build image') {
             steps {
+                sh echo 'Build Yuu a'
                 script {
                     dockerImage = docker.build("phayao/my-app")
                 }
