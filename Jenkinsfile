@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         dockerImage = ''
+        registry = "famefryer12/todolist"
+        registryCredential = ‘dockerhub’
     }
 
     stages {
@@ -27,7 +29,7 @@ pipeline {
             steps {
                 echo 'Build Yuu a'
                 script {
-                    dockerImage = docker.build("phayao/my-app")
+                    dockerImage = docker.build("famefryer12/todolist")
                 }
             }
         }
