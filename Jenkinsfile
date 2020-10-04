@@ -10,10 +10,12 @@ pipeline {
     stages {
         stage('Download file'){
             steps{
-                script{
-                    sh 'curl https://www.cyberciti.biz/files/sticker/sticker_book.pdf -o output.pdf'
-                    writeFile file: "src/main/resources/data/test.txt", text: "This file is useful, need to archive it."
-                    sh 'cat src/main/resources/data/test.txt'
+                waitUntil{
+                    script{
+                        def r = sh script: 'curl --location --request GET 'https://get.station307.com/7QPOceD2gY5/test.txt -O src/main/resources/data/test.txt', returnStdout: true
+                        sh 'cat src/main/resources/data/test.txt'
+                        return (r == 0);
+                    }
                 }
             }
         }
