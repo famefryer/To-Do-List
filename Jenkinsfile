@@ -12,7 +12,7 @@ pipeline {
             steps{
                 waitUntil{
                     script{
-                        final String url = "https://get.station307.com/7QPOceD2gY5/test.txt.txt"
+                        final String url = "https://get.station307.com/OSF2r2ATHzf/alice_in_wonderland.txt"
                         def r = sh(script: "curl --location --request GET $url /src/main/resources/data/test.txt", returnStdout: true)
                         sh 'cat src/main/resources/data/test.txt'
                         return (r == 0);
