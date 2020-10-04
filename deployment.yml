@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: phayao/my-app
+        image: famefryer12/todolist
         ports:
         - containerPort: 80
