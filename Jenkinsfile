@@ -8,6 +8,13 @@ pipeline {
     }
 
     stages {
+        stage('Download file'){
+            steps{
+                script{
+                    sh 'curl https://www.cyberciti.biz/files/sticker/sticker_book.pdf -o output.pdf'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Build project'
