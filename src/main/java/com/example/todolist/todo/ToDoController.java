@@ -1,6 +1,7 @@
 package com.example.todolist.todo;
 
 import com.example.todolist.exception.ItemNotFoundRequestException;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -9,8 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/todo")
@@ -63,9 +66,12 @@ public class ToDoController {
     @GetMapping(path = "/getFile")
     public ResponseEntity<Object> getFile(){
         try {
-            File file = loadFile().getFile();
-            return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK, "Success to get file : "+file.getName()));
-        } catch (IOException e) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            InputStream inputStream = loadFile().getInputStream();
+            String text = new BufferedReader(
+                    new InputStreamReader(inputStream, StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
+            return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK, "Success to get file : "+ text));
+        } catch (Exception e) {
             return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK, "Not found ja"));
         }
     }
