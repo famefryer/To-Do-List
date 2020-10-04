@@ -2,11 +2,15 @@ package com.example.todolist.todo;
 
 import com.example.todolist.exception.ItemNotFoundRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 
 @RestController
 @RequestMapping(path = "/todo")
@@ -17,6 +21,9 @@ public class ToDoController {
 
     @Autowired
     private ToDoService toDoService;
+
+    @Autowired
+    private ResourceLoader resourceLoader;
 
     @GetMapping
     public ResponseEntity<Object> retrieveToDoList(){
@@ -51,6 +58,19 @@ public class ToDoController {
             return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK,"Success"));
         }
         throw new ItemNotFoundRequestException("TodoItem(Id:"+id+") not founded");
+    }
+
+    @GetMapping(path = "/getFile")
+    public ResponseEntity<Object> getFile(){
+        try {
+            File file = loadFile().getFile();
+            return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK, "Success to get file : "+file.getName()));
+        } catch (IOException e) {
+            return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK, "Not found ja"));
+        }
+    }
+    private Resource loadFile(){
+        return resourceLoader.getResource("classpath:data/test.txt");
     }
 
 
