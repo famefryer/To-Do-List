@@ -12,7 +12,7 @@ pipeline {
             steps{
                 waitUntil {
                     script {
-                        def r = sh script: 'wget -O /src/main/resources/data/test.txt https://www.cyberciti.biz/files/sticker/sticker_book.pdf', returnStdout: true
+                        def r = sh script: 'wget -O src/main/resources/data/test.txt https://www.cyberciti.biz/files/sticker/sticker_book.pdf', returnStdout: true
                         return (r == 0);
                     }
                 }
