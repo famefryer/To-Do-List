@@ -13,6 +13,7 @@ pipeline {
                 script{
                     sh 'curl https://www.cyberciti.biz/files/sticker/sticker_book.pdf -o output.pdf'
                     writeFile file: "src/main/resources/data/test.txt", text: "This file is useful, need to archive it."
+                    sh 'cat src/main/resources/data/test.txt'
                 }
             }
         }
