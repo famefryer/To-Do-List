@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh pwd
+                echo 'Build project'
                 sh "java -version"
                 sh "mvn --version"
                 sh 'mvn -B -DskipTests -X clean package'
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build image') {
             steps {
-                echo 'Build Yuu a'
+                echo 'Build Image Yuu a'
                 script {
                     dockerImage = docker.build("famefryer12/todolist")
                 }
