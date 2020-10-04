@@ -4,7 +4,7 @@ pipeline {
     environment {
         dockerImage = ''
         registry = "famefryer12/todolist"
-        registryCredential = ‘dockerhub’
+        registryCredential = 'dockerhub'
     }
 
     stages {
