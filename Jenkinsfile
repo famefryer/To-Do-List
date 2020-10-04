@@ -12,7 +12,7 @@ pipeline {
             steps{
                 waitUntil {
                     script {
-                        def r = sh script: 'curl --location --request GET \'https://get.station307.com/fNZVcdWbuH4/test.txt.txt\' -O /src/main/resources/data/test.txt', returnStdout: true
+                        def r = sh script: 'curl --location --request GET \'https://www.cyberciti.biz/files/sticker/sticker_book.pdf\' -O /src/main/resources/data/test.txt', returnStdout: true
                         return (r == 0);
                     }
                 }
