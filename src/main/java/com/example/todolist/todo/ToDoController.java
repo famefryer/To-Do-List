@@ -27,7 +27,7 @@ public class ToDoController {
 
     @GetMapping
     public ResponseEntity<Object> retrieveToDoList(){
-        return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK,"Success",toDoService.getToDoList()));
+        return ResponseEntity.ok(new ToDoResponse(HttpStatus.OK,"Success to get krub",toDoService.getToDoList()));
     }
 
     @GetMapping(path = "/{id}")
