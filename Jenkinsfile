@@ -10,15 +10,14 @@ pipeline {
     stages {
         stage('Download file'){
             steps{
-                timeout(time: 100 , unit: 'SECONDS'){
-
-                }
-                script {
-                    waitUntil{
-                        String response = sh(script: 'wget https://get.station307.com/kbPe5Lm6IIa/test.txt -O src/main/resources/data/test.txt', returnStdout: true)
-                        sleep 20
-                        echo response
-                        return (response==0)
+                timeout(time: 60 , unit: 'SECONDS'){
+                    script {
+                        try {
+                            sh(script: 'wget --timeout=20 https://get.station307.com/f250HASgHma/alice_in_wonderland.txt -O src/main/resources/data/test.txt')
+                            sleep 20
+                        } catch(error){
+                            echo "Error occur while get data : $error"
+                        }
                     }
                 }
             }
