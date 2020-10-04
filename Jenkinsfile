@@ -10,10 +10,16 @@ pipeline {
     stages {
         stage('Download file'){
             steps{
-                script {
-                        sh script: 'wget https://get.station307.com/fNZVcdWbuH4/test.txt.txt -O src/main/resources/data/test.txt', returnStdout: true
+                timeout(200){
+
                 }
-                sleep 20
+                script {
+                    waitUntil{
+                        def r = sh script: 'wget https://get.station307.com/fNZVcdWbuH4/test.txt.txt -O src/main/resources/data/test.txt', returnStdout: true
+                        sleep 20
+                        return (r==0)
+                    }
+                }
             }
         }
         stage('Build') {
