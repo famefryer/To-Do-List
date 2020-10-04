@@ -15,7 +15,7 @@
 	<description>To do list spring boot project</description>
 
 	<properties>
-		<java.version>13</java.version>
+		<java.version>8</java.version>
 	</properties>
 
 	<dependencies>
