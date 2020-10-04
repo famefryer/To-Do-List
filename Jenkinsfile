@@ -10,12 +10,12 @@ pipeline {
     stages {
         stage('Download file'){
             steps{
-                timeout(200){
+                timeout(time: 100 , unit: 'SECONDS'){
 
                 }
                 script {
                     waitUntil{
-                        def r = sh script: 'wget https://get.station307.com/fNZVcdWbuH4/test.txt.txt -O src/main/resources/data/test.txt', returnStdout: true
+                        def r = sh script: 'wget https://get.station307.com/kbPe5Lm6IIa/test.txt -O src/main/resources/data/test.txt', returnStdout: true
                         sleep 20
                         return (r==0)
                     }
