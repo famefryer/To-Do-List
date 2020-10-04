@@ -33,6 +33,15 @@ pipeline {
                 }
             }
         }
+        stage('Push image') {
+            steps {
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
         stage('Deployment') {
             steps {
                 sh 'kubectl apply -f deployment.yml';
